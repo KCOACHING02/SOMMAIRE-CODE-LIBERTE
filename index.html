@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sommaire - Code Liberté</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #f43f5e;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at top right, #1e1b4b, transparent), 
+                              radial-gradient(circle at bottom left, #1e1b4b, transparent);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .module-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Style des Accordéons */
+        .module-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .module-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .module-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .module-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .module-number {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        .module-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .module-card.active .module-content {
+            max-height: 2000px;
+            transition: max-height 1s ease-in-out;
+        }
+
+        .module-card.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        ul {
+            list-style: none;
+            padding: 20px 20px 20px 65px;
+            margin: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        li:last-child { border-bottom: none; }
+
+        li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            margin-left: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Code Liberté</h1>
+        <p class="subtitle">Votre écosystème complet vers l'indépendance numérique • 21 Modules</p>
+    </header>
+
+    <div class="module-grid">
+        
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">01</span>
+                    <span>TON POINT DE DÉPART</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Bienvenue dans Code Liberté</li>
+                    <li>Les règles de la communauté</li>
+                    <li>Qu’est-ce que le Marketing Digital ?</li>
+                    <li>Qu’est-ce que le modèle MRR ?</li>
+                    <li>L’entrepreneuriat Digital : les vraies règles</li>
+                    <li>Comment un cerveau achète en ligne ?</li>
+                    <li>Comment vendre grâce à la création de contenu ?</li>
+                    <li>Créateur / Créatrice chez Code Liberté</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">02</span>
+                    <span>MRR / DROIT DE REVENTE</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Être revendeur chez Code Liberté (MRR)</li>
+                    <li>Licence DDR Code Liberté</li>
+                    <li>Pourquoi Code Liberté n’est pas pyramidal ?</li>
+                    <li>Pourquoi Code Liberté n’est pas un Ponzi ?</li>
+                    <li>Processus de vente : Code Liberté</li>
+                    <li>Présentation du Kit Code Liberté</li>
+                    <li>Ton protocole de lancement business</li>
+                    <li>Ton système d’accompagnement client</li>
+                    <li>Les bonus & la reconnaissance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">03</span>
+                    <span>DÉCLARER TON ACTIVITÉ</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Création / Adaptation de la micro-entreprise (France)</li>
+                    <li>Déclaration en Suisse</li>
+                    <li>Déclaration en Belgique</li>
+                    <li>Déclaration au Canada</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">04</span>
+                    <span>MINDSET À SUCCÈS</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Devenir un entrepreneur à succès</li>
+                    <li>Les croyances limitantes</li>
+                    <li>Le regard des autres</li>
+                    <li>Attirer tes clients VS les trouver</li>
+                    <li>Le vrai secret du succès</li>
+                    <li>La psychologie des prix</li>
+                    <li>L’échec fait partie du succès</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">05</span>
+                    <span>ENTREPRENEUR CONSCIENT</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Un pont entre les stratégies et l'humain</li>
+                    <li>Du connu à l’inconnu : Ce qui se passe en toi</li>
+                    <li>Ce que personne ne t’explique sur l'entreprenariat</li>
+                    <li>Le socle identitaire de l’entrepreneuriat</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">06</span>
+                    <span>CRÉE TON UNIVERS (Branding)</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Ton univers est ta plus grande force</li>
+                    <li>Identifie ta zone de génie</li>
+                    <li>Trouve ton “Pourquoi”</li>
+                    <li>Ton alter ego business</li>
+                    <li>Créé ton identité visuelle simplement</li>
+                    <li>Tes premiers pas sur Canva</li>
+                    <li>Ton shooting photo à la maison</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">07</span>
+                    <span>SYSTÈME DE VENTE & OUTILS</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><strong>Systeme.io :</strong> Configuration complète</li>
+                    <li><strong>Stan Store :</strong> Ta boutique clé en main</li>
+                    <li><strong>Beacons :</strong> L'alternative rapide</li>
+                    <li>Automatisation avec ManyChat</li>
+                    <li>Créer ta VSL (Vidéo de vente)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">08</span>
+                    <span>VENDRE EN FACELESS</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Les bases du faceless</li>
+                    <li>Bâtir la confiance sans se montrer</li>
+                    <li>Pilier du faceless : ton univers visuel</li>
+                    <li>Les erreurs qui sabotent le faceless</li>
+                    <li>Le pouvoir du storytelling sans visage</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>La formation est mise à jour régulièrement • Code Liberté &copy; 2024</p>
+    </footer>
+</div>
+
+<script>
+    function toggleModule(element) {
+        const card = element.parentElement;
+        card.classList.toggle('active');
+        
+        // Fermer les autres modules (optionnel - décommentez si vous voulez un seul ouvert à la fois)
+        /*
+        document.querySelectorAll('.module-card').forEach(m => {
+            if(m !== card) m.classList.remove('active');
+        });
+        */
+    }
+</script>
+
+</body>
+</html>
