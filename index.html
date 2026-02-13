@@ -3,170 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sommaire - Code Liberté</title>
+    <title>Sommaire Complet - Code Liberté</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* Palette Terracotta & Beige Sable */
-            --deep-terracotta: #a65d47; /* Couleur terre cuite foncée */
-            --soft-terracotta: #d99379; /* Couleur terre cuite douce */
-            --beige-dark: #e8d5c4;      /* Beige soutenu */
-            --beige-light: #f5ede4;     /* Sable clair */
-            --bg-page: #fdfaf7;         /* Fond crème */
-            --text-main: #5c4a44;       /* Marron chaud pour le texte */
+            --deep-terracotta: #a65d47;
+            --soft-terracotta: #d99379;
+            --beige-dark: #e8d5c4;
+            --beige-light: #f5ede4;
+            --bg-page: #fdfaf7;
+            --text-main: #5c4a44;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-page);
             color: var(--text-main);
-            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
+        .container { max-width: 850px; margin: 0 auto; padding-bottom: 50px; }
 
-        header {
-            text-align: center;
-            padding: 60px 0 40px;
-        }
+        header { text-align: center; padding: 40px 0; }
 
         h1 {
             font-family: 'Georgia', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--deep-terracotta);
-            margin-bottom: 10px;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
-        .subtitle {
-            font-size: 1rem;
-            color: var(--soft-terracotta);
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
+        .subtitle { color: var(--soft-terracotta); font-weight: 300; letter-spacing: 1px; }
 
-        .module-grid {
-            display: grid;
-            gap: 25px;
-            margin-top: 20px;
-        }
+        .module-grid { display: grid; gap: 15px; margin-top: 20px; }
 
         .module-card {
-            background: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
+            background: #fff;
+            border-radius: 12px;
             border: 1px solid var(--beige-dark);
-            box-shadow: 0 10px 20px rgba(166, 93, 71, 0.05);
-            transition: all 0.4s ease;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(166, 93, 71, 0.05);
         }
 
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(166, 93, 71, 0.1);
-        }
-
-        /* Style des images envoyées */
         .module-img {
             width: 100%;
-            height: 220px;
+            height: 150px;
             object-fit: cover;
-            border-bottom: 1px solid var(--beige-light);
             display: block;
+            background: var(--beige-light);
         }
 
         .module-header {
-            padding: 25px;
+            padding: 18px 20px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #fff;
         }
 
         .module-title {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.1rem;
+            gap: 12px;
             font-weight: 600;
             color: var(--deep-terracotta);
+            font-size: 0.95rem;
         }
 
         .module-number {
             font-family: 'Georgia', serif;
-            font-size: 0.9rem;
             color: var(--soft-terracotta);
             border: 1px solid var(--soft-terracotta);
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; font-size: 0.75rem;
         }
 
         .module-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.6s ease;
-            background-color: var(--bg-page);
+            transition: max-height 0.4s ease-out;
+            background: #fff;
         }
 
-        .module-card.active .module-content {
-            max-height: 1000px; /* Ajustez selon la longueur du contenu */
-        }
+        .module-card.active .module-content { max-height: 2000px; padding-bottom: 20px; }
+        .module-card.active .fa-chevron-down { transform: rotate(180deg); color: var(--soft-terracotta); }
 
-        .module-card.active .fa-chevron-down {
-            transform: rotate(180deg);
-            color: var(--soft-terracotta);
-        }
-
-        ul {
-            list-style: none;
-            padding: 25px 30px 30px 60px;
-            margin: 0;
-        }
-
-        li {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--beige-light);
-            color: var(--text-main);
-            position: relative;
-        }
-
-        li::before {
-            content: "→";
-            position: absolute;
-            left: -25px;
-            color: var(--soft-terracotta);
-        }
-
+        ul { list-style: none; padding: 0 25px 0 55px; margin: 0; }
+        li { padding: 8px 0; border-bottom: 1px solid var(--beige-light); position: relative; font-size: 0.9rem; }
+        li::before { content: "•"; position: absolute; left: -20px; color: var(--soft-terracotta); font-weight: bold; }
         li:last-child { border-bottom: none; }
 
-        .badge-ia {
-            background-color: var(--deep-terracotta);
-            color: #fff;
-            padding: 3px 10px;
-            font-size: 0.7rem;
-            border-radius: 50px;
-            margin-left: 10px;
-            vertical-align: middle;
-            text-transform: uppercase;
-        }
+        .badge { background: var(--deep-terracotta); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; margin-left: 8px; text-transform: uppercase; }
 
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            font-size: 0.8rem;
-            color: var(--soft-terracotta);
-            letter-spacing: 1px;
-        }
+        footer { text-align: center; padding: 40px; color: var(--soft-terracotta); font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -174,18 +107,15 @@
 <div class="container">
     <header>
         <h1>Code Liberté</h1>
-        <p class="subtitle">SOMMAIRE DES 21 MODULES</p>
+        <p class="subtitle">SOMMAIRE DÉTAILLÉ (21 MODULES)</p>
     </header>
 
     <div class="module-grid">
         
         <div class="module-card">
-            <img src="URL_DE_VOTRE_IMAGE_1.jpg" alt="Bienvenue" class="module-img">
+            <img src="URL_IMAGE_1.jpg" class="module-img">
             <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title">
-                    <span class="module-number">01</span>
-                    <span>TON POINT DE DÉPART</span>
-                </div>
+                <div class="module-title"><span class="module-number">01</span> TON POINT DE DÉPART</div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
@@ -194,17 +124,293 @@
                     <li>Les règles de la communauté</li>
                     <li>Qu’est-ce que le Marketing Digital ?</li>
                     <li>Qu’est-ce que le modèle MRR ?</li>
+                    <li>L’entrepreneuriat Digital : les vraies règles</li>
+                    <li>Comment un cerveau achète en ligne ?</li>
+                    <li>Comment vendre grâce à la création de contenu ?</li>
+                    <li>Créateur / Créatrice chez Code Liberté</li>
                 </ul>
             </div>
         </div>
 
-        <div class="module-card" style="border: 1px solid var(--deep-terracotta);">
-            <img src="URL_DE_VOTRE_IMAGE_IA.jpg" alt="IA Intelligence Artificielle" class="module-img">
+        <div class="module-card">
             <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title">
-                    <span class="module-number" style="background: var(--deep-terracotta); color: white; border: none;">09</span>
-                    <span>TON IMAGE AVEC L'IA <span class="badge-ia">Nouveau</span></span>
-                </div>
+                <div class="module-title"><span class="module-number">02</span> MRR / DROIT DE REVENTE</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Être revendeur chez Code Liberté (MRR)</li>
+                    <li>Licence DDR Code Liberté</li>
+                    <li>Pourquoi Code Liberté n’est pas pyramidal ?</li>
+                    <li>Pourquoi Code Liberté n’est pas un Ponzi ?</li>
+                    <li>Processus de vente : Code Liberté</li>
+                    <li>Présentation du Kit Code Liberté</li>
+                    <li>Ton protocole de lancement business</li>
+                    <li>Ton système d’accompagnement client</li>
+                    <li>Les bonus & la reconnaissance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">03</span> DÉCLARER TON ACTIVITÉ</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Création / Adaptation de la micro-entreprise (France)</li>
+                    <li>Déclaration en Suisse</li>
+                    <li>Déclaration en Belgique</li>
+                    <li>Déclaration au Canada</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">04</span> REPLAY DES LIVES</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Lives hebdo : Bien démarrer, Stopper la procrastination</li>
+                    <li>Bilan, Créer ton univers, Expérience client</li>
+                    <li>Engagement, 5 niveaux de conscience</li>
+                    <li>10 principes pour devenir inarrêtable</li>
+                    <li>Qualité vidéo, Documenter son parcours, Psychologie du follow</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">05</span> MINDSET À SUCCÈS</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Devenir un entrepreneur à succès</li>
+                    <li>Les croyances limitantes</li>
+                    <li>Le regard des autres / Rapport à la visibilité</li>
+                    <li>Attirer tes clients VS les trouver</li>
+                    <li>Tu es légitime même si tu débutes</li>
+                    <li>Le mythe du marché saturé</li>
+                    <li>La psychologie des prix</li>
+                    <li>L’échec fait partie du succès / Arrête de te comparer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">06</span> ENTREPRENEUR CONSCIENT</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Un pont entre les stratégies et l'humain</li>
+                    <li>Pourquoi l’envie ne suffit pas pour changer de vie</li>
+                    <li>Du connu à l’inconnu : Ce qui se passe en toi</li>
+                    <li>De l’autoroute de la peur à la route du possible</li>
+                    <li>Ce que personne ne t’explique sur l'entreprenariat</li>
+                    <li>Le socle identitaire de l’entrepreneuriat</li>
+                    <li>Entreprendre quand la vie fait des vagues</li>
+                    <li>Refuge, fréquences, intégration : la triade du doute</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">07</span> CRÉE TON UNIVERS</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Personal branding & Zone de génie</li>
+                    <li>Trouve ton “Pourquoi” & Ta vibe naturelle</li>
+                    <li>Ton alter ego business / Ton histoire aimant</li>
+                    <li>Créé ton identité visuelle simplement</li>
+                    <li>Tes premiers pas sur Canva</li>
+                    <li>Optimiser son profil / Shooting photo maison</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">08</span> TON KIT CODE LIBERTÉ</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Templates Boutique/Tunnel de vente</li>
+                    <li>Vidéo de présentation / Vendre en DM</li>
+                    <li>Ebook lead magnet / Emails auto</li>
+                    <li>90 idées de contenu / Mock up & logo</li>
+                    <li>+2000 vidéos Faceless / 20 ebooks PLR</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">09</span> S’ORGANISER POUR DURER</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Action régulière > Motivation ponctuelle</li>
+                    <li>Organisation selon ton profil de vie</li>
+                    <li>La routine de la semaine parfaite</li>
+                    <li>Outils de discipline et productivité</li>
+                    <li>Structurer ton quotidien comme un CEO</li>
+                    <li>Optimiser son énergie (80/20)</li>
+                    <li>Stratégie du focus ultra laser</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">10</span> SYSTÈME DE VENTE</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><strong>Systeme.io :</strong> Création, Nom de domaine, Stripe, Boutique SIO</li>
+                    <li><strong>Stan Store :</strong> Personnalisation & Boutique copier/coller</li>
+                    <li><strong>Beacons :</strong> Atelier optimisation & Paiements</li>
+                    <li>Automatisation avec ManyChat</li>
+                    <li>Créer ta VSL & Montage CapCut</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">11</span> TON SYSTÈME D’ENCAISSEMENT</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Introduction Stripe et alternatives</li>
+                    <li>Square up (solution d'urgence) / Mollie (durable)</li>
+                    <li>Gumroad et copeCart</li>
+                    <li>Que faire si Stripe est bloqué ?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">12</span> RÉSEAUX SOCIAUX</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><strong>Instagram :</strong> Formats, Algorithme, Initiation contenu</li>
+                    <li><strong>TikTok :</strong> Viralité, Algorithme, Live TikTok</li>
+                    <li>Se lancer sur Threads / Gérer les restrictions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">13</span> ATTIRER TES CLIENTS</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>L’art de capter l’attention en 3 secondes</li>
+                    <li>Les 3 énergies d’un contenu magnétique</li>
+                    <li>Créer du contenu Miroir / Méthode A.I.D.A</li>
+                    <li>Méthode de viralité / Confiance & Estime</li>
+                    <li>Challenge 60 jours de contenu / Masterclass FACELESS</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">14</span> VENDRE SIMPLEMENT</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Vendre = Aider / Le chemin client</li>
+                    <li>Vendre en Story, DM, Lives et Appels</li>
+                    <li>Gérer les objections avec empathie</li>
+                    <li>Teaser et lancer ton offre</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">15</span> VENDRE EN FACELESS</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Les bases du faceless / Bâtir la confiance</li>
+                    <li>Ton univers visuel / Remixes faceless</li>
+                    <li>Filmer tes propres vidéos / Carrousel faceless</li>
+                    <li>Engagement faceless & Storytelling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">16</span> ENGAGER AVEC TON AUDIENCE</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Entrer en relation (Réseau chaud/tiède)</li>
+                    <li>Repenser la prospection comme un art</li>
+                    <li>L’entrée en relation subtile (accroches)</li>
+                    <li>Outils : Organisation et suivi de tes leads</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">17</span> MACHINE À CONTENU</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Reprogrammer ton cerveau de créateur</li>
+                    <li>Routine hebdo de content batching</li>
+                    <li>Optimise ton contenu pour durer</li>
+                    <li>Planifie like a CEO (Stratégie 1 mois)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">18</span> TON ASSISTANT VIRTUEL CHATGPT</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Comment utiliser GPT et prompter</li>
+                    <li>Gagner 3h/j : déléguer + productivité</li>
+                    <li>L’IA qui booste ton contenu & L’IA qui aide à closer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card" style="border: 2px solid var(--deep-terracotta);">
+            <img src="URL_IMAGE_IA.jpg" class="module-img">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">19</span> TON IMAGE AVEC L'IA <span class="badge">Nouveau</span></div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
@@ -222,10 +428,38 @@
             </div>
         </div>
 
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">20</span> CRÉATION PETITE OFFRE</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Trouver ton problème douloureux / Promesse</li>
+                    <li>Créer un nom magnétique / Positionnement</li>
+                    <li>Structure de l'offre / Prix / Order Bump</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title"><span class="module-number">21</span> FAIRE DE L’AFFILIATION / COACHING</div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><strong>Affiliation :</strong> Règle des 3R, Plateformes, Niche, Éthique</li>
+                    <li><strong>Coaching :</strong> Client de coeur, Promesse, Structuration, Prix</li>
+                    <li><strong>Formation :</strong> En cours de création...</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        CODE LIBERTÉ &copy; 2026 • L'ENTREPRENEURIAT CONSCIENT
+        CODE LIBERTÉ &copy; 2026 • LA CRÉATRICE S'ADAPTE À VOS RETOURS
     </footer>
 </div>
 
@@ -233,6 +467,13 @@
     function toggleModule(element) {
         const card = element.parentElement;
         card.classList.toggle('active');
+        
+        // Optionnel : ferme les autres modules quand on en ouvre un
+        /*
+        document.querySelectorAll('.module-card').forEach(m => {
+            if(m !== card) m.classList.remove('active');
+        });
+        */
     }
 </script>
 
