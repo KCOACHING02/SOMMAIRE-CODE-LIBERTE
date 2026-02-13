@@ -45,14 +45,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
-        .module-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-            background-color: var(--beige-sable);
-        }
-
         .module-header {
             padding: 20px;
             cursor: pointer;
@@ -85,7 +77,6 @@
             background: #fff;
         }
 
-        /* CORRECTION DU BUG : On permet une hauteur suffisante pour les listes longues */
         .module-card.active .module-content {
             max-height: 3000px; 
             padding-bottom: 20px;
@@ -132,7 +123,6 @@
     <div class="module-grid">
         
         <div class="module-card">
-            <img src="CL6.jpg" class="module-img" alt="Branding">
             <div class="module-header" onclick="toggleModule(this)">
                 <div class="module-title"><span class="module-number">01</span> TON POINT DE DÉPART</div>
                 <i class="fas fa-chevron-down"></i>
@@ -430,66 +420,8 @@
         </div>
 
         <div class="module-card" style="border: 1px solid var(--terracotta);">
-            <img src="CL7.jpg" class="module-img" alt="IA Intelligence">
             <div class="module-header" onclick="toggleModule(this)">
                 <div class="module-title"><span class="module-number" style="background: var(--terracotta); color:#fff; border:none;">19</span> TON IMAGE AVEC L'IA <span class="badge">Nouveau</span></div>
                 <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="module-content">
-                <ul>
-                    <li style="font-weight: bold; color: var(--terracotta);">Objectif de ce module</li>
-                    <li>Crée ton compte sur Replicate</li>
-                    <li>Crée ton shooting photos avec l'IA</li>
-                    <li>Ajoute une deuxième personne sur la photo</li>
-                    <li>Crée une vidéo à partir de ta photo IA</li>
-                    <li>Crée ton avatar IA</li>
-                    <li>Fais danser ton avatar ou clone IA</li>
-                    <li>Fais parler ton avatar avec ta voix</li>
-                    <li>Gagne du temps et de l'argent</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="module-card">
-            <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title"><span class="module-number">20</span> CRÉATION PETITE OFFRE / AFFILIATION</div>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="module-content">
-                <ul>
-                    <li>Trouver ta zone de génie / Problème douloureux</li>
-                    <li>Formuler ta promesse / Nom magnétique</li>
-                    <li>L’affiliation : Règle des 3R, Niche, Conformité</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="module-card">
-            <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title"><span class="module-number">21</span> COACHING / FORMATION</div>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="module-content">
-                <ul>
-                    <li>Créer une promesse claire & désirable</li>
-                    <li>Fixer le bon prix / Early Adopters</li>
-                    <li><strong>Formation :</strong> New page (en cours de création)</li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        CODE LIBERTÉ &copy; 2026 • Design Terracotta & Sable
-    </footer>
-</div>
-
-<script>
-    function toggleModule(element) {
-        element.parentElement.classList.toggle('active');
-    }
-</script>
-
-</body>
-</html>
+            <div class="module-content
