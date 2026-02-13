@@ -3,103 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sommaire Complet - Code Liberté</title>
+    <title>Sommaire - Code Liberté</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --deep-terracotta: #a65d47;
-            --soft-terracotta: #d99379;
-            --beige-dark: #e8d5c4;
-            --beige-light: #f5ede4;
-            --bg-page: #fdfaf7;
-            --text-main: #5c4a44;
+            --terracotta: #a65d47;
+            --soft-clay: #d99379;
+            --beige-sable: #f5ede4;
+            --cream: #fdfaf7;
+            --text-dark: #5c4a44;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
             margin: 0;
-            padding: 10px;
+            padding: 20px;
+            line-height: 1.5;
         }
 
-        .container { max-width: 850px; margin: 0 auto; padding-bottom: 50px; }
+        .container { max-width: 850px; margin: 0 auto; }
 
         header { text-align: center; padding: 40px 0; }
-
-        h1 {
-            font-family: 'Georgia', serif;
-            font-size: 2.5rem;
-            color: var(--deep-terracotta);
+        
+        h1 { 
+            font-family: 'Georgia', serif; 
+            color: var(--terracotta); 
+            text-transform: uppercase; 
             letter-spacing: 3px;
-            text-transform: uppercase;
             margin-bottom: 5px;
         }
 
-        .subtitle { color: var(--soft-terracotta); font-weight: 300; letter-spacing: 1px; }
-
-        .module-grid { display: grid; gap: 15px; margin-top: 20px; }
+        .module-grid { display: flex; flex-direction: column; gap: 15px; }
 
         .module-card {
             background: #fff;
             border-radius: 12px;
-            border: 1px solid var(--beige-dark);
+            border: 1px solid var(--beige-sable);
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(166, 93, 71, 0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         .module-img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
             display: block;
-            background: var(--beige-light);
+            background-color: var(--beige-sable);
         }
 
         .module-header {
-            padding: 18px 20px;
+            padding: 20px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            user-select: none;
         }
 
         .module-title {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             font-weight: 600;
-            color: var(--deep-terracotta);
-            font-size: 0.95rem;
+            color: var(--terracotta);
         }
 
         .module-number {
-            font-family: 'Georgia', serif;
-            color: var(--soft-terracotta);
-            border: 1px solid var(--soft-terracotta);
-            width: 28px; height: 28px;
+            border: 1px solid var(--soft-clay);
+            color: var(--soft-clay);
+            width: 30px; height: 30px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; font-size: 0.75rem;
+            border-radius: 50%; font-size: 0.8rem;
         }
 
         .module-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out;
+            transition: max-height 0.8s ease-in-out;
             background: #fff;
         }
 
-        .module-card.active .module-content { max-height: 2000px; padding-bottom: 20px; }
-        .module-card.active .fa-chevron-down { transform: rotate(180deg); color: var(--soft-terracotta); }
+        /* CORRECTION DU BUG : On permet une hauteur suffisante pour les listes longues */
+        .module-card.active .module-content {
+            max-height: 3000px; 
+            padding-bottom: 20px;
+        }
 
-        ul { list-style: none; padding: 0 25px 0 55px; margin: 0; }
-        li { padding: 8px 0; border-bottom: 1px solid var(--beige-light); position: relative; font-size: 0.9rem; }
-        li::before { content: "•"; position: absolute; left: -20px; color: var(--soft-terracotta); font-weight: bold; }
-        li:last-child { border-bottom: none; }
+        .module-card.active .fa-chevron-down { transform: rotate(180deg); }
 
-        .badge { background: var(--deep-terracotta); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; margin-left: 8px; text-transform: uppercase; }
+        ul { list-style: none; padding: 0 30px 0 65px; margin: 0; }
+        li { 
+            padding: 8px 0; 
+            border-bottom: 1px solid var(--cream); 
+            position: relative; 
+            font-size: 0.92rem;
+        }
+        li::before { 
+            content: "•"; 
+            position: absolute; 
+            left: -20px; 
+            color: var(--soft-clay); 
+            font-weight: bold; 
+        }
+        
+        .badge {
+            background: var(--terracotta);
+            color: #fff;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
 
-        footer { text-align: center; padding: 40px; color: var(--soft-terracotta); font-size: 0.8rem; letter-spacing: 1px; }
+        footer { text-align: center; padding: 50px; color: var(--soft-clay); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -107,13 +126,13 @@
 <div class="container">
     <header>
         <h1>Code Liberté</h1>
-        <p class="subtitle">SOMMAIRE DÉTAILLÉ (21 MODULES)</p>
+        <p>Sommaire Complet — 21 Modules</p>
     </header>
 
     <div class="module-grid">
         
         <div class="module-card">
-            <img src="URL_IMAGE_1.jpg" class="module-img">
+            <img src="IMAGE_1.jpg" class="module-img" alt="Branding">
             <div class="module-header" onclick="toggleModule(this)">
                 <div class="module-title"><span class="module-number">01</span> TON POINT DE DÉPART</div>
                 <i class="fas fa-chevron-down"></i>
@@ -174,11 +193,13 @@
             </div>
             <div class="module-content">
                 <ul>
-                    <li>Lives hebdo : Bien démarrer, Stopper la procrastination</li>
-                    <li>Bilan, Créer ton univers, Expérience client</li>
-                    <li>Engagement, 5 niveaux de conscience</li>
-                    <li>10 principes pour devenir inarrêtable</li>
-                    <li>Qualité vidéo, Documenter son parcours, Psychologie du follow</li>
+                    <li>Lives hebdo : Bien démarrer avec Code Liberté</li>
+                    <li>Stopper la procrastination / Bilan de septembre</li>
+                    <li>Créer ton univers / Améliorer l’expérience client</li>
+                    <li>Engager avec ta communauté / 5 niveaux de conscience</li>
+                    <li>Pyramide de l’entrepreneur / 10 principes inarrétables</li>
+                    <li>Vidéos de meilleure qualité / Documenter son parcours</li>
+                    <li>Morning Shift / Psychologie du follow</li>
                 </ul>
             </div>
         </div>
@@ -193,8 +214,10 @@
                     <li>Devenir un entrepreneur à succès</li>
                     <li>Les croyances limitantes</li>
                     <li>Le regard des autres / Rapport à la visibilité</li>
+                    <li>L’impact n’est pas la popularité</li>
                     <li>Attirer tes clients VS les trouver</li>
-                    <li>Tu es légitime même si tu débutes</li>
+                    <li>Choisis la gratitude / Le vrai secret du succès</li>
+                    <li>Légitimité du débutant / Nombre d’abonnés</li>
                     <li>Le mythe du marché saturé</li>
                     <li>La psychologie des prix</li>
                     <li>L’échec fait partie du succès / Arrête de te comparer</li>
@@ -216,23 +239,23 @@
                     <li>Ce que personne ne t’explique sur l'entreprenariat</li>
                     <li>Le socle identitaire de l’entrepreneuriat</li>
                     <li>Entreprendre quand la vie fait des vagues</li>
-                    <li>Refuge, fréquences, intégration : la triade du doute</li>
+                    <li>La triade qui te sauve quand tu doutes</li>
                 </ul>
             </div>
         </div>
 
         <div class="module-card">
             <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title"><span class="module-number">07</span> CRÉE TON UNIVERS</div>
+                <div class="module-title"><span class="module-number">07</span> CRÉE TON UNIVERS (Branding)</div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
                 <ul>
-                    <li>Personal branding & Zone de génie</li>
-                    <li>Trouve ton “Pourquoi” & Ta vibe naturelle</li>
+                    <li>Ton univers est ta plus grande force</li>
+                    <li>Identifie ta zone de génie / Trouve ton “Pourquoi”</li>
+                    <li>Ta vibe naturelle / Trouver ton positionnement</li>
                     <li>Ton alter ego business / Ton histoire aimant</li>
-                    <li>Créé ton identité visuelle simplement</li>
-                    <li>Tes premiers pas sur Canva</li>
+                    <li>Identité visuelle / Premiers pas sur Canva</li>
                     <li>Optimiser son profil / Shooting photo maison</li>
                 </ul>
             </div>
@@ -247,9 +270,10 @@
                 <ul>
                     <li>Templates Boutique/Tunnel de vente</li>
                     <li>Vidéo de présentation / Vendre en DM</li>
-                    <li>Ebook lead magnet / Emails auto</li>
-                    <li>90 idées de contenu / Mock up & logo</li>
-                    <li>+2000 vidéos Faceless / 20 ebooks PLR</li>
+                    <li>Ebook lead magnet / Emails auto & campagne</li>
+                    <li>90 idées de contenu / Mock up & logo CL</li>
+                    <li>+2000 vidéos Faceless / 15 audios Mindset</li>
+                    <li>20 ebooks PLR</li>
                 </ul>
             </div>
         </div>
@@ -262,12 +286,12 @@
             <div class="module-content">
                 <ul>
                     <li>Action régulière > Motivation ponctuelle</li>
-                    <li>Organisation selon ton profil de vie</li>
                     <li>La routine de la semaine parfaite</li>
                     <li>Outils de discipline et productivité</li>
                     <li>Structurer ton quotidien comme un CEO</li>
-                    <li>Optimiser son énergie (80/20)</li>
+                    <li>Optimiser ton énergie et ton focus (80/20)</li>
                     <li>Stratégie du focus ultra laser</li>
+                    <li>Créer des systèmes duplicables</li>
                 </ul>
             </div>
         </div>
@@ -279,9 +303,9 @@
             </div>
             <div class="module-content">
                 <ul>
-                    <li><strong>Systeme.io :</strong> Création, Nom de domaine, Stripe, Boutique SIO</li>
-                    <li><strong>Stan Store :</strong> Personnalisation & Boutique copier/coller</li>
-                    <li><strong>Beacons :</strong> Atelier optimisation & Paiements</li>
+                    <li><strong>Systeme.io :</strong> Tunnel simple, Nom de domaine, Stripe, Boutique</li>
+                    <li><strong>Stan Store :</strong> Création & Personnalisation</li>
+                    <li><strong>Beacons :</strong> Atelier optimisation & Email marketing</li>
                     <li>Automatisation avec ManyChat</li>
                     <li>Créer ta VSL & Montage CapCut</li>
                 </ul>
@@ -295,9 +319,8 @@
             </div>
             <div class="module-content">
                 <ul>
-                    <li>Introduction Stripe et alternatives</li>
-                    <li>Square up (solution d'urgence) / Mollie (durable)</li>
-                    <li>Gumroad et copeCart</li>
+                    <li>Stripe et alternatives / Square up</li>
+                    <li>Mollie solution durable / Gumroad & CopeCart</li>
                     <li>Que faire si Stripe est bloqué ?</li>
                 </ul>
             </div>
@@ -312,7 +335,7 @@
                 <ul>
                     <li><strong>Instagram :</strong> Formats, Algorithme, Initiation contenu</li>
                     <li><strong>TikTok :</strong> Viralité, Algorithme, Live TikTok</li>
-                    <li>Se lancer sur Threads / Gérer les restrictions</li>
+                    <li>Gérer les restrictions / Se lancer sur Threads</li>
                 </ul>
             </div>
         </div>
@@ -327,7 +350,6 @@
                     <li>L’art de capter l’attention en 3 secondes</li>
                     <li>Les 3 énergies d’un contenu magnétique</li>
                     <li>Créer du contenu Miroir / Méthode A.I.D.A</li>
-                    <li>Méthode de viralité / Confiance & Estime</li>
                     <li>Challenge 60 jours de contenu / Masterclass FACELESS</li>
                 </ul>
             </div>
@@ -340,7 +362,7 @@
             </div>
             <div class="module-content">
                 <ul>
-                    <li>Vendre = Aider / Le chemin client</li>
+                    <li>Vendre = Aider / Le chemin du client</li>
                     <li>Vendre en Story, DM, Lives et Appels</li>
                     <li>Gérer les objections avec empathie</li>
                     <li>Teaser et lancer ton offre</li>
@@ -357,8 +379,8 @@
                 <ul>
                     <li>Les bases du faceless / Bâtir la confiance</li>
                     <li>Ton univers visuel / Remixes faceless</li>
-                    <li>Filmer tes propres vidéos / Carrousel faceless</li>
-                    <li>Engagement faceless & Storytelling</li>
+                    <li>Filmer tes propres vidéos / Storytelling faceless</li>
+                    <li>Les erreurs qui sabotent le faceless</li>
                 </ul>
             </div>
         </div>
@@ -371,9 +393,9 @@
             <div class="module-content">
                 <ul>
                     <li>Entrer en relation (Réseau chaud/tiède)</li>
-                    <li>Repenser la prospection comme un art</li>
-                    <li>L’entrée en relation subtile (accroches)</li>
-                    <li>Outils : Organisation et suivi de tes leads</li>
+                    <li>Prospection comme un art relationnel</li>
+                    <li>Méthode Magnétisme et Connexion</li>
+                    <li>Organisation et suivi de tes leads</li>
                 </ul>
             </div>
         </div>
@@ -388,7 +410,7 @@
                     <li>Reprogrammer ton cerveau de créateur</li>
                     <li>Routine hebdo de content batching</li>
                     <li>Optimise ton contenu pour durer</li>
-                    <li>Planifie like a CEO (Stratégie 1 mois)</li>
+                    <li>Planifie like a CEO</li>
                 </ul>
             </div>
         </div>
@@ -401,21 +423,21 @@
             <div class="module-content">
                 <ul>
                     <li>Comment utiliser GPT et prompter</li>
-                    <li>Gagner 3h/j : déléguer + productivité</li>
-                    <li>L’IA qui booste ton contenu & L’IA qui aide à closer</li>
+                    <li>Gagner 3h/j avec l’IA : déléguer + productivité</li>
+                    <li>L’IA qui booste ton contenu & closer en DM</li>
                 </ul>
             </div>
         </div>
 
-        <div class="module-card" style="border: 2px solid var(--deep-terracotta);">
-            <img src="URL_IMAGE_IA.jpg" class="module-img">
+        <div class="module-card" style="border: 1px solid var(--terracotta);">
+            <img src="IMAGE_IA.jpg" class="module-img" alt="IA Intelligence">
             <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title"><span class="module-number">19</span> TON IMAGE AVEC L'IA <span class="badge">Nouveau</span></div>
+                <div class="module-title"><span class="module-number" style="background: var(--terracotta); color:#fff; border:none;">19</span> TON IMAGE AVEC L'IA <span class="badge">Nouveau</span></div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
                 <ul>
-                    <li style="font-weight: bold; color: var(--deep-terracotta);">Objectif de ce module</li>
+                    <li style="font-weight: bold; color: var(--terracotta);">Objectif de ce module</li>
                     <li>Crée ton compte sur Replicate</li>
                     <li>Crée ton shooting photos avec l'IA</li>
                     <li>Ajoute une deuxième personne sur la photo</li>
@@ -430,28 +452,28 @@
 
         <div class="module-card">
             <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title"><span class="module-number">20</span> CRÉATION PETITE OFFRE</div>
+                <div class="module-title"><span class="module-number">20</span> CRÉATION PETITE OFFRE / AFFILIATION</div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
                 <ul>
-                    <li>Trouver ton problème douloureux / Promesse</li>
-                    <li>Créer un nom magnétique / Positionnement</li>
-                    <li>Structure de l'offre / Prix / Order Bump</li>
+                    <li>Trouver ta zone de génie / Problème douloureux</li>
+                    <li>Formuler ta promesse / Nom magnétique</li>
+                    <li>L’affiliation : Règle des 3R, Niche, Conformité</li>
                 </ul>
             </div>
         </div>
 
         <div class="module-card">
             <div class="module-header" onclick="toggleModule(this)">
-                <div class="module-title"><span class="module-number">21</span> FAIRE DE L’AFFILIATION / COACHING</div>
+                <div class="module-title"><span class="module-number">21</span> COACHING / FORMATION</div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
                 <ul>
-                    <li><strong>Affiliation :</strong> Règle des 3R, Plateformes, Niche, Éthique</li>
-                    <li><strong>Coaching :</strong> Client de coeur, Promesse, Structuration, Prix</li>
-                    <li><strong>Formation :</strong> En cours de création...</li>
+                    <li>Créer une promesse claire & désirable</li>
+                    <li>Fixer le bon prix / Early Adopters</li>
+                    <li><strong>Formation :</strong> New page (en cours de création)</li>
                 </ul>
             </div>
         </div>
@@ -459,21 +481,13 @@
     </div>
 
     <footer>
-        CODE LIBERTÉ &copy; 2026 • LA CRÉATRICE S'ADAPTE À VOS RETOURS
+        CODE LIBERTÉ &copy; 2026 • Design Terracotta & Sable
     </footer>
 </div>
 
 <script>
     function toggleModule(element) {
-        const card = element.parentElement;
-        card.classList.toggle('active');
-        
-        // Optionnel : ferme les autres modules quand on en ouvre un
-        /*
-        document.querySelectorAll('.module-card').forEach(m => {
-            if(m !== card) m.classList.remove('active');
-        });
-        */
+        element.parentElement.classList.toggle('active');
     }
 </script>
 
