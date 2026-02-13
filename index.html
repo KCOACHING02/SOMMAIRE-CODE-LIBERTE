@@ -57,7 +57,6 @@
             margin-top: 30px;
         }
 
-        /* Style des Accordéons */
         .module-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -91,7 +90,7 @@
 
         .module-number {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            width: 30px;
+            min-width: 30px;
             height: 30px;
             display: flex;
             align-items: center;
@@ -148,6 +147,7 @@
             background: rgba(99, 102, 241, 0.2);
             color: #818cf8;
             margin-left: 10px;
+            text-transform: uppercase;
         }
 
         footer {
@@ -248,7 +248,7 @@
                     <li>Le regard des autres</li>
                     <li>Attirer tes clients VS les trouver</li>
                     <li>Le vrai secret du succès</li>
-                    <li>La psychologie des prix</li>
+                    <li>Tu es légitime même si tu débutes</li>
                     <li>L’échec fait partie du succès</li>
                 </ul>
             </div>
@@ -266,6 +266,7 @@
                 <ul>
                     <li>Un pont entre les stratégies et l'humain</li>
                     <li>Du connu à l’inconnu : Ce qui se passe en toi</li>
+                    <li>De l’autoroute de la peur à la route du possible</li>
                     <li>Ce que personne ne t’explique sur l'entreprenariat</li>
                     <li>Le socle identitaire de l’entrepreneuriat</li>
                 </ul>
@@ -276,19 +277,18 @@
             <div class="module-header" onclick="toggleModule(this)">
                 <div class="module-title">
                     <span class="module-number">06</span>
-                    <span>CRÉE TON UNIVERS (Branding)</span>
+                    <span>CRÉE TON UNIVERS</span>
                 </div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
                 <ul>
                     <li>Ton univers est ta plus grande force</li>
-                    <li>Identifie ta zone de génie</li>
                     <li>Trouve ton “Pourquoi”</li>
-                    <li>Ton alter ego business</li>
+                    <li>Trouver ton positionnement</li>
+                    <li>Ton histoire, ton aimant naturel</li>
                     <li>Créé ton identité visuelle simplement</li>
                     <li>Tes premiers pas sur Canva</li>
-                    <li>Ton shooting photo à la maison</li>
                 </ul>
             </div>
         </div>
@@ -297,15 +297,15 @@
             <div class="module-header" onclick="toggleModule(this)">
                 <div class="module-title">
                     <span class="module-number">07</span>
-                    <span>SYSTÈME DE VENTE & OUTILS</span>
+                    <span>SYSTÈME DE VENTE</span>
                 </div>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="module-content">
                 <ul>
-                    <li><strong>Systeme.io :</strong> Configuration complète</li>
-                    <li><strong>Stan Store :</strong> Ta boutique clé en main</li>
-                    <li><strong>Beacons :</strong> L'alternative rapide</li>
+                    <li>Configuration Systeme.io (Nom de domaine, Email, Stripe)</li>
+                    <li>Ta boutique copier / coller SIO</li>
+                    <li>Installation Stan Store & Beacons</li>
                     <li>Automatisation avec ManyChat</li>
                     <li>Créer ta VSL (Vidéo de vente)</li>
                 </ul>
@@ -324,9 +324,50 @@
                 <ul>
                     <li>Les bases du faceless</li>
                     <li>Bâtir la confiance sans se montrer</li>
-                    <li>Pilier du faceless : ton univers visuel</li>
+                    <li>Filmer tes propres vidéos</li>
+                    <li>L’engagement faceless : le pouvoir du storytelling</li>
                     <li>Les erreurs qui sabotent le faceless</li>
-                    <li>Le pouvoir du storytelling sans visage</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card" style="border-left: 3px solid var(--accent);">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number" style="background: linear-gradient(135deg, var(--accent), var(--secondary));">09</span>
+                    <span>TON IMAGE AVEC L'IA <span class="badge" style="background: rgba(244, 63, 94, 0.2); color: #f43f5e;">NOUVEAU</span></span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li style="color: #fca5a5; font-weight: bold;">Objectif de ce module</li>
+                    <li>Crée ton compte sur Replicate</li>
+                    <li>Crée ton shooting photos avec l'IA</li>
+                    <li>Ajoute une deuxième personne sur la photo</li>
+                    <li>Crée une vidéo à partir de ta photo IA</li>
+                    <li>Crée ton avatar IA</li>
+                    <li>Fais danser ton avatar ou clone IA</li>
+                    <li>Fais parler ton avatar avec ta voix</li>
+                    <li>Gagne du temps et de l'argent</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-title">
+                    <span class="module-number">10</span>
+                    <span>TON ASSISTANT VIRTUEL CHATGPT</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Comment utiliser GPT et prompter</li>
+                    <li>Gagner 3h/j avec l’IA : déléguer + productivité</li>
+                    <li>L’IA qui booste ton contenu</li>
+                    <li>L’IA qui t’aide à closer en DM</li>
                 </ul>
             </div>
         </div>
@@ -334,7 +375,7 @@
     </div>
 
     <footer>
-        <p>La formation est mise à jour régulièrement • Code Liberté &copy; 2024</p>
+        <p>La formation est mise à jour régulièrement • Code Liberté &copy; 2026</p>
     </footer>
 </div>
 
@@ -342,13 +383,6 @@
     function toggleModule(element) {
         const card = element.parentElement;
         card.classList.toggle('active');
-        
-        // Fermer les autres modules (optionnel - décommentez si vous voulez un seul ouvert à la fois)
-        /*
-        document.querySelectorAll('.module-card').forEach(m => {
-            if(m !== card) m.classList.remove('active');
-        });
-        */
     }
 </script>
 
